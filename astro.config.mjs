@@ -1,11 +1,12 @@
 import { defineConfig } from 'astro/config';
-import cloudflare from '@astrojs/cloudflare';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://aisbirnusantara.com',
-  output: 'static',
-  adapter: cloudflare(),
+
   image: {
     remotePatterns: [{ protocol: 'https' }]
-  }
+  },
+
+  integrations: [sitemap()]
 });

@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-import authlogopng from '../assets/auth-logo.png';
 import ThemeToggle from './ThemeToggle.astro';
 
 interface Props {
@@ -13,7 +11,7 @@ const { isTransparent = false } = Astro.props;
 <header class={`navbar ${isTransparent ? '' : 'scrolled'}`} data-transparent={isTransparent.toString()}>
   <div class="container navbar-container">
     <a href="/" class="logo">
-      <Image src={authlogopng}  alt="Aisbir Cloud Logo" class="logo-img" />
+      <img src="/images/auth-logo.webp" width="4000" height="803" alt="Aisbir Cloud Logo" class="logo-img" loading="lazy" decoding="async" />
     </a>
     
     <nav class="nav-links">

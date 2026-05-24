@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-import domainlogospng from '../assets/domain_logos.png';
 ---
 
 <section class="section-padding">
@@ -12,7 +10,7 @@ import domainlogospng from '../assets/domain_logos.png';
       </p>
 
       <div class="domain-image-container reveal-on-scroll" style="transition-delay: 200ms;">
-        <Image src={domainlogospng}  alt="Ekstensi Domain Populer" class="domain-logos animate-float" />
+        <img src="/images/domain_logos.webp" width="851" height="315" alt="Ekstensi Domain Populer" class="domain-logos animate-float" loading="lazy" decoding="async" />
       </div>
     </div>
   </div>

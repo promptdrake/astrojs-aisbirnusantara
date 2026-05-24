@@ -6,7 +6,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
-const description = "Web hosting premium dan server Pterodactyl oleh Aisbir Cloud Nusantara. Solusi andal, cepat, dan aman.";
+const description = "Penyedia layanan web hosting, domain murah, dan server Pterodactyl berkualitas dari Aisbir Cloud Nusantara. Super cepat, aman, dan didukung AI 24/7.";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImageURL = new URL('/banner.png', Astro.site);
 ---
@@ -16,12 +16,19 @@ const socialImageURL = new URL('/banner.png', Astro.site);
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		
+		<!-- Fonts & Preloads -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"></noscript>
+		<link rel="preload" as="image" href="/images/kakak_umi_chan.webp" fetchpriority="high">
+
 		<!-- Favicons -->
 		<link rel="icon" type="image/svg+xml" href="/logo-icon.svg" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/favicon-32x32.png" />
 		
 		<meta name="generator" content={Astro.generator} />
 		<meta name="theme-color" content="#3b82f6" />
@@ -57,7 +64,6 @@ const socialImageURL = new URL('/banner.png', Astro.site);
 		</script>
 		
 		<script is:inline>
-			// Dark mode initialization
 			const theme = (() => {
 				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
 					return localStorage.getItem('theme');

@@ -1,10 +1,8 @@
 ---
-import { Image } from 'astro:assets';
-import kakakumichanpng from '../assets/kakak_umi_chan.png';
 ---
 
 <section class="hero-section">
-  <Image src={kakakumichanpng} alt="Background" class="hero-bg-img" loading="eager" />
+  <img src="/images/kakak_umi_chan.webp" width="1847" height="852" alt="Background" class="hero-bg-img" loading="eager" decoding="async" />
   <div class="cursor-glow" id="hero-glow"></div>
   <div class="sakura-container" id="sakura-container"></div>
 
@@ -15,14 +13,12 @@ import kakakumichanpng from '../assets/kakak_umi_chan.png';
       </div>
 
       <h1 class="hero-title">
-        Shared Hosting Terbaik <br />
-        <span class="text-gradient">Budget Friendly</span>
+        Hosting & Pterodactyl <br />
+        <span class="text-gradient">Termurah</span>
       </h1>
 
       <p class="hero-subtitle">
-        Aisbir Cloud Nusantara menyediakan solusi hosting yang sangat cepat,
-        aman, dan andal. Mulai dari server Pterodactyl hingga web hosting
-        DirectAdmin yang tangguh.
+        Aisbir Cloud Nusantara menyediakan layanan hosting dan Pterodactyl termurah terbaik yang sangat cepat, aman, dan andal. Mulai dari server Pterodactyl hingga web hosting DirectAdmin yang tangguh.
       </p>
 
       <div class="hero-actions">
@@ -49,16 +45,16 @@ import kakakumichanpng from '../assets/kakak_umi_chan.png';
       <div class="tech-card-wrapper">
         <div class="tech-card">
           <div class="tech-logo-slot" data-slot="0">
-            <img src="https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/Node.js/png/Node.js.png?raw=true" alt="Node.js" class="tech-logo active" />
-            <img src="" alt="" class="tech-logo" />
+            <img src="/images/logos/nodejs.webp" alt="Node.js" class="tech-logo active" width="400" height="auto" loading="eager" />
+            <img src="" alt="Tech Logo Slot 1" class="tech-logo" width="400" height="auto" loading="eager" />
           </div>
           <div class="tech-logo-slot" data-slot="1">
-            <img src="https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/Go%20Lang/png/Golang.png?raw=true" alt="Go Lang" class="tech-logo active" />
-            <img src="" alt="" class="tech-logo" />
+            <img src="/images/logos/golang.webp" alt="Go Lang" class="tech-logo active" width="400" height="auto" loading="eager" />
+            <img src="" alt="Tech Logo Slot 2" class="tech-logo" width="400" height="auto" loading="eager" />
           </div>
           <div class="tech-logo-slot" data-slot="2">
-            <img src="https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/Laravel/png/LaravelTransparent.png?raw=true" alt="Laravel" class="tech-logo active" />
-            <img src="" alt="" class="tech-logo" />
+            <img src="/images/logos/laravel.webp" alt="Laravel" class="tech-logo active" width="400" height="auto" loading="eager" />
+            <img src="" alt="Tech Logo Slot 3" class="tech-logo" width="400" height="auto" loading="eager" />
           </div>
         </div>
  
@@ -393,13 +389,13 @@ function initSakura() {
 
 function initTechLogos() {
   const LOGO_POOL = [
-    { src: "https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/Node.js/png/Node.js.png?raw=true", alt: "Node.js" },
-    { src: "https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/Go%20Lang/png/Golang.png?raw=true", alt: "Go Lang" },
-    { src: "https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/Laravel/png/LaravelTransparent.png?raw=true", alt: "Laravel" },
-    { src: "https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/TypeScript/png/TypeScript.png?raw=true", alt: "TypeScript" },
-    { src: "https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/Next.js/png/Next.js.png?raw=true", alt: "Next.js" },
-    { src: "https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/GitHub/png/GitHub.png?raw=true", alt: "GitHub" },
-    { src: "https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/Express/png/Express.png?raw=true", alt: "Express" }
+    { src: "/images/logos/nodejs.webp", alt: "Node.js" },
+    { src: "/images/logos/golang.webp", alt: "Go Lang" },
+    { src: "/images/logos/laravel.webp", alt: "Laravel" },
+    { src: "/images/logos/typescript.webp", alt: "TypeScript" },
+    { src: "/images/logos/nextjs.webp", alt: "Next.js" },
+    { src: "/images/logos/github.webp", alt: "GitHub" },
+    { src: "/images/logos/express.webp", alt: "Express" }
   ];
 
   let activeLogos = [0, 1, 2]; 

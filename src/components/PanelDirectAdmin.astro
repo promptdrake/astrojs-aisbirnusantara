@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-import paneldapng from '../assets/panel_da.png';
 ---
 
 <section class="section-padding section-grid-bg">
@@ -40,7 +38,7 @@ import paneldapng from '../assets/panel_da.png';
       </div>
       
       <div class="panel-image reveal-on-scroll" style="transition-delay: 200ms;">
-        <Image src={paneldapng}  alt="Mockup DirectAdmin Panel" class="mockup-img animate-float" />
+        <img src="/images/panel_da.webp" width="1280" height="1229" alt="Mockup DirectAdmin Panel" class="mockup-img animate-float" loading="lazy" decoding="async" />
       </div>
     </div>
   </div>
