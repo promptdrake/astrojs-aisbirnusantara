@@ -1,3 +1,6 @@
+---
+---
+
 <section class="hero-section">
   <div class="cursor-glow" id="hero-glow"></div>
   <div class="sakura-container" id="sakura-container"></div>
@@ -5,7 +8,7 @@
   <div class="container hero-container animate-fade-in">
     <div class="hero-content">
       <div class="badge-wrapper">
-        <span class="badge badge-popular">Performa Premium</span>
+        <span class="badge badge-popular">Launching Product Domain!</span>
       </div>
 
       <h1 class="hero-title">
@@ -59,17 +62,26 @@
       </div>
     </div>
   </div>
+
+  <div class="scroll-indicator">
+    <a href="#pterodactyl" aria-label="Scroll down">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 5v14"></path>
+        <polyline points="19 12 12 19 5 12"></polyline>
+      </svg>
+    </a>
+  </div>
 </section>
 
 <style>
 .hero-section{
   position:relative;
-  padding:10rem 0 6rem;
-  min-height:90vh;
+  padding:10rem 0 8rem;
+  min-height:100vh;
   display:flex;
   align-items:center;
   overflow:hidden;
-  background-image:url('https://id-cdn.aisbirnusantara.com/portal/b52046737d3ff17bf048a4f62fa09092.jpg');
+  background-image:url('https://id-cdn.aisbirnusantara.com/brand/kakak_umi_chan.png');
   background-size:cover;
   background-position:center;
 }
@@ -81,9 +93,6 @@
   background:rgba(0,0,0,.42);
   z-index:1;
 }
-
-/* glow */
-
 .cursor-glow{
   position:absolute;
   width:550px;
@@ -101,7 +110,50 @@
   filter:blur(55px);
 }
 
-/* sakura */
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  animation: bounce-scroll 2s infinite;
+}
+
+.scroll-indicator a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-indicator a:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+@keyframes bounce-scroll {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(-15px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(-7px) translateX(-50%);
+  }
+}
+
+
 
 .sakura-container{
   position:absolute;
@@ -112,7 +164,6 @@
 }
 
 
-/* content */
 
 .hero-container{
   position:relative;
@@ -213,8 +264,8 @@
 
 .tech-logo-slot {
   position: relative;
-  width: 120px;
-  height: 80px;
+  width: 160px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -254,16 +305,31 @@
 }
 
 @media(max-width:768px){
+  .hero-section {
+    padding: 7rem 0 5rem;
+  }
+  
   .hero-title{
-    font-size:2.5rem;
+    font-size:2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .hero-actions{
     flex-direction:column;
+    margin-bottom: 1.5rem;
   }
 
   .btn-lg{
     width:100%;
+    padding: 0.875rem 1.5rem;
+  }
+  
+  .tech-card-wrapper {
+    margin-top: 1.5rem;
   }
 
   .tech-card {
@@ -279,7 +345,7 @@
 </style>
 
 <script>
-/* glow */
+
 
 const hero=document.querySelector('.hero-section');
 const glow=document.getElementById('hero-glow');
@@ -303,7 +369,6 @@ if(hero && glow){
   }
 }
 
-/* LIGHT sakura rain */
 
 function initSakura() {
   const sakuraContainer = document.getElementById('sakura-container');
@@ -326,13 +391,12 @@ function initTechLogos() {
     { src: "https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/Express/png/Express.png?raw=true", alt: "Express" }
   ];
 
-  let activeLogos = [0, 1, 2]; // Match starting HTML values
-
+  let activeLogos = [0, 1, 2]; 
   const slots = document.querySelectorAll('.tech-logo-slot');
   slots.forEach((slot, slotIdx) => {
     setTimeout(() => {
       setInterval(() => {
-        // Find pool indices not currently displayed in any slot
+
         const unusedIndices = [];
         for (let i = 0; i < LOGO_POOL.length; i++) {
           if (!activeLogos.includes(i)) {
@@ -342,13 +406,10 @@ function initTechLogos() {
         
         if (unusedIndices.length === 0) return;
         
-        // Pick one at random
         const nextIdx = unusedIndices[Math.floor(Math.random() * unusedIndices.length)];
         
-        // Mark it as active for this slot
         activeLogos[slotIdx] = nextIdx;
         
-        // Double-buffered swap
         const imgs = slot.querySelectorAll('.tech-logo');
         const activeImg = slot.querySelector('.tech-logo.active');
         const nextImg = Array.from(imgs).find(img => img !== activeImg);
@@ -356,8 +417,7 @@ function initTechLogos() {
         if (nextImg && activeImg) {
           nextImg.src = LOGO_POOL[nextIdx].src;
           nextImg.alt = LOGO_POOL[nextIdx].alt;
-          
-          // Force layout flow so change triggers transition correctly
+       
           nextImg.getBoundingClientRect();
           
           nextImg.classList.add('active');
@@ -395,7 +455,7 @@ function createPetal(container) {
   petal.style.animationDuration = duration + 's';
   petal.style.animationDelay = delay + 's';
 
-  // Make opacity much higher (between 0.4 and 0.8) so they are visible
+
   petal.style.opacity = (Math.random() * 0.4 + 0.4).toFixed(2);
 
   // Solid sakura pink colors

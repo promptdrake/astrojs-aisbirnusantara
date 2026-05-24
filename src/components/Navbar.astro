@@ -1,17 +1,23 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
+
+interface Props {
+  isTransparent?: boolean;
+}
+
+const { isTransparent = false } = Astro.props;
 ---
 
-<header class="navbar">
+<header class={`navbar ${isTransparent ? '' : 'scrolled'}`} data-transparent={isTransparent.toString()}>
   <div class="container navbar-container">
     <a href="/" class="logo">
-      <img src="https://id-cdn.aisbirnusantara.com/portal/logo.svg" alt="Aisbir Cloud Logo" class="logo-img" />
+      <img src="https://id-cdn.aisbirnusantara.com/brand/auth-logo.png" alt="Aisbir Cloud Logo" class="logo-img" />
     </a>
     
     <nav class="nav-links">
-      <a href="#pterodactyl" class="nav-link">Pterodactyl Panel</a>
-      <a href="#directadmin" class="nav-link">Web Hosting</a>
-      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="/#pterodactyl" class="nav-link">Pterodactyl Panel</a>
+      <a href="/#directadmin" class="nav-link">Web Hosting</a>
+      <a href="/#faq" class="nav-link">FAQ</a>
       <ThemeToggle />
       <a href="https://portal.aisbirnusantara.com" target="_blank" rel="noopener noreferrer" class="btn-primary">
         Portal Klien
@@ -35,10 +41,24 @@ import ThemeToggle from './ThemeToggle.astro';
     left: 0;
     width: 100%;
     z-index: 100;
+    padding: 1.2rem 0;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  :global(html.dark) .navbar {
+    background: rgba(11, 17, 32, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .navbar.scrolled {
     padding: 1rem 0;
-    background: var(--nav-bg, var(--surface-solid));
+    background: var(--surface-solid);
     border-bottom: 1px solid var(--border-color);
-    transition: all var(--transition-normal);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   }
 
   .navbar-container {
@@ -70,21 +90,72 @@ import ThemeToggle from './ThemeToggle.astro';
   .nav-link {
     font-weight: 600;
     color: var(--text-secondary);
-    transition: color var(--transition-normal);
+    transition: all var(--transition-normal);
   }
 
   .nav-link:hover {
     color: var(--primary-accent);
   }
 
+  /* Glass Mode (Top) Typography & Button Styles */
+  .navbar:not(.scrolled) .nav-link {
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .navbar:not(.scrolled) .nav-link:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .navbar:not(.scrolled) .btn-primary {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    box-shadow: none;
+  }
+
+  .navbar:not(.scrolled) .btn-primary:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  /* Give logo a drop shadow for better contrast without breaking its colors */
+  .navbar:not(.scrolled) .logo-img {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+  }
+
   .mobile-menu-btn {
     display: none;
     color: var(--text-primary);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  
+  .mobile-menu-btn svg line {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+  }
+  
+  /* Animate to 'X' */
+  .mobile-menu-btn.active svg line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .mobile-menu-btn.active svg line:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-menu-btn.active svg line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .navbar:not(.scrolled) .mobile-menu-btn {
+    color: #ffffff;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
   }
 
   @media (max-width: 768px) {
     .nav-links {
-      display: none;
       position: absolute;
       top: 100%;
       left: 0;
@@ -97,10 +168,18 @@ import ThemeToggle from './ThemeToggle.astro';
       padding: 1rem 0;
       box-shadow: var(--shadow-md);
       z-index: 99;
+      
+      display: flex;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .nav-links.show {
-      display: flex;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
     
     .mobile-menu-btn {
@@ -114,17 +193,37 @@ import ThemeToggle from './ThemeToggle.astro';
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
     const links = document.querySelectorAll('.nav-link');
+    const navbar = document.querySelector('.navbar');
 
     if (mobileMenuBtn && navLinks) {
       mobileMenuBtn.addEventListener('click', () => {
         navLinks.classList.toggle('show');
+        mobileMenuBtn.classList.toggle('active');
       });
 
       links.forEach(link => {
         link.addEventListener('click', () => {
           navLinks.classList.remove('show');
+          mobileMenuBtn.classList.remove('active');
         });
       });
+    }
+
+    if (navbar) {
+      const isTransparent = navbar.getAttribute('data-transparent') === 'true';
+
+      if (isTransparent) {
+        const handleScroll = () => {
+          if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        };
+
+        handleScroll();
+        window.addEventListener('scroll', handleScroll);
+      }
     }
   });
 </script>
