@@ -1,0 +1,443 @@
+<section class="hero-section">
+  <div class="cursor-glow" id="hero-glow"></div>
+  <div class="sakura-container" id="sakura-container"></div>
+
+  <div class="container hero-container animate-fade-in">
+    <div class="hero-content">
+      <div class="badge-wrapper">
+        <span class="badge badge-popular">Performa Premium</span>
+      </div>
+
+      <h1 class="hero-title">
+        Shared Hosting Terbaik <br />
+        <span class="text-gradient">Budget Friendly</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Aisbir Cloud Nusantara menyediakan solusi hosting yang sangat cepat,
+        aman, dan andal. Mulai dari server Pterodactyl hingga web hosting
+        DirectAdmin yang tangguh.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#pterodactyl" class="btn-primary btn-lg">
+          Jelajahi Server
+          <svg xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+
+        <a href="#directadmin"
+          class="btn-outline btn-lg hero-btn-outline">
+          Lihat Web Hosting
+        </a>
+      </div>
+
+      <div class="tech-card-wrapper">
+        <div class="tech-card">
+          <div class="tech-logo-slot" data-slot="0">
+            <img src="https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/Node.js/png/Node.js.png?raw=true" alt="Node.js" class="tech-logo active" />
+            <img src="" alt="" class="tech-logo" />
+          </div>
+          <div class="tech-logo-slot" data-slot="1">
+            <img src="https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/Go%20Lang/png/Golang.png?raw=true" alt="Go Lang" class="tech-logo active" />
+            <img src="" alt="" class="tech-logo" />
+          </div>
+          <div class="tech-logo-slot" data-slot="2">
+            <img src="https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/Laravel/png/LaravelTransparent.png?raw=true" alt="Laravel" class="tech-logo active" />
+            <img src="" alt="" class="tech-logo" />
+          </div>
+        </div>
+ 
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.hero-section{
+  position:relative;
+  padding:10rem 0 6rem;
+  min-height:90vh;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background-image:url('https://id-cdn.aisbirnusantara.com/portal/b52046737d3ff17bf048a4f62fa09092.jpg');
+  background-size:cover;
+  background-position:center;
+}
+
+.hero-section::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.42);
+  z-index:1;
+}
+
+/* glow */
+
+.cursor-glow{
+  position:absolute;
+  width:550px;
+  height:550px;
+  background:radial-gradient(circle,
+      rgba(56,189,248,.18) 0%,
+      rgba(96,165,250,.05) 60%,
+      transparent 80%);
+  border-radius:50%;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  z-index:2;
+  opacity:0;
+  transition:opacity .3s ease;
+  filter:blur(55px);
+}
+
+/* sakura */
+
+.sakura-container{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  z-index:2;
+  pointer-events:none;
+}
+
+
+/* content */
+
+.hero-container{
+  position:relative;
+  z-index:10;
+  text-align:center;
+  color:white;
+}
+
+.hero-content{
+  max-width:800px;
+  margin:0 auto;
+}
+
+.badge-wrapper{
+  margin-bottom:2rem;
+}
+
+.hero-title{
+  font-size:4rem;
+  font-weight:800;
+  line-height:1.1;
+  margin-bottom:1.5rem;
+  letter-spacing:-.02em;
+  color:white;
+  text-shadow:0 4px 12px rgba(0,0,0,.5);
+}
+
+.hero-title .text-gradient{
+  background:linear-gradient(
+    135deg,
+    #41d8ff 0%,
+    #19c5ff 45%,
+    #00eaff 100%
+  );
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 2px 12px rgba(255,255,255,.12);
+}
+
+.hero-subtitle{
+  font-size:1.25rem;
+  color:white;
+  margin-bottom:3rem;
+  line-height:1.6;
+  text-shadow:0 2px 8px rgba(0,0,0,.6);
+}
+
+.hero-actions{
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+  margin-bottom:4rem;
+}
+
+.btn-lg{
+  padding:1rem 2rem;
+  font-size:1.125rem;
+}
+
+.hero-btn-outline{
+  background:rgba(255,255,255,.08)!important;
+  backdrop-filter:blur(8px);
+  color:white!important;
+  border:1px solid rgba(255,255,255,.18)!important;
+}
+
+.tech-card-wrapper {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tech-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  padding: 1.5rem 2rem;
+  width: 100%;
+  max-width: 650px;
+  min-height: 120px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  box-sizing: border-box;
+  gap: 1.5rem;
+}
+
+.tech-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.tech-logo-slot {
+  position: relative;
+  width: 120px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.tech-logo {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.tech-logo.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.tech-credit {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.tech-credit a {
+  color: #fda4af;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.tech-credit a:hover {
+  color: #ffb7c5;
+}
+
+@media(max-width:768px){
+  .hero-title{
+    font-size:2.5rem;
+  }
+
+  .hero-actions{
+    flex-direction:column;
+  }
+
+  .btn-lg{
+    width:100%;
+  }
+
+  .tech-card {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .tech-logo-slot {
+    width: 80px;
+    height: 60px;
+  }
+}
+</style>
+
+<script>
+/* glow */
+
+const hero=document.querySelector('.hero-section');
+const glow=document.getElementById('hero-glow');
+
+if(hero && glow){
+  if(window.matchMedia('(pointer:fine)').matches){
+
+    hero.addEventListener('mousemove',(e)=>{
+      const rect=hero.getBoundingClientRect();
+      glow.style.left=(e.clientX-rect.left)+'px';
+      glow.style.top=(e.clientY-rect.top)+'px';
+    });
+
+    hero.addEventListener('mouseenter',()=>{
+      glow.style.opacity='1';
+    });
+
+    hero.addEventListener('mouseleave',()=>{
+      glow.style.opacity='0';
+    });
+  }
+}
+
+/* LIGHT sakura rain */
+
+function initSakura() {
+  const sakuraContainer = document.getElementById('sakura-container');
+  if (sakuraContainer) {
+    const petals = 14;
+    for (let i = 0; i < petals; i++) {
+      createPetal(sakuraContainer);
+    }
+  }
+}
+
+function initTechLogos() {
+  const LOGO_POOL = [
+    { src: "https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/Node.js/png/Node.js.png?raw=true", alt: "Node.js" },
+    { src: "https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/Go%20Lang/png/Golang.png?raw=true", alt: "Go Lang" },
+    { src: "https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/Laravel/png/LaravelTransparent.png?raw=true", alt: "Laravel" },
+    { src: "https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/TypeScript/png/TypeScript.png?raw=true", alt: "TypeScript" },
+    { src: "https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/Next.js/png/Next.js.png?raw=true", alt: "Next.js" },
+    { src: "https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/GitHub/png/GitHub.png?raw=true", alt: "GitHub" },
+    { src: "https://github.com/SAWARATSUKI/KawaiiLogos/blob/main/Express/png/Express.png?raw=true", alt: "Express" }
+  ];
+
+  let activeLogos = [0, 1, 2]; // Match starting HTML values
+
+  const slots = document.querySelectorAll('.tech-logo-slot');
+  slots.forEach((slot, slotIdx) => {
+    setTimeout(() => {
+      setInterval(() => {
+        // Find pool indices not currently displayed in any slot
+        const unusedIndices = [];
+        for (let i = 0; i < LOGO_POOL.length; i++) {
+          if (!activeLogos.includes(i)) {
+            unusedIndices.push(i);
+          }
+        }
+        
+        if (unusedIndices.length === 0) return;
+        
+        // Pick one at random
+        const nextIdx = unusedIndices[Math.floor(Math.random() * unusedIndices.length)];
+        
+        // Mark it as active for this slot
+        activeLogos[slotIdx] = nextIdx;
+        
+        // Double-buffered swap
+        const imgs = slot.querySelectorAll('.tech-logo');
+        const activeImg = slot.querySelector('.tech-logo.active');
+        const nextImg = Array.from(imgs).find(img => img !== activeImg);
+        
+        if (nextImg && activeImg) {
+          nextImg.src = LOGO_POOL[nextIdx].src;
+          nextImg.alt = LOGO_POOL[nextIdx].alt;
+          
+          // Force layout flow so change triggers transition correctly
+          nextImg.getBoundingClientRect();
+          
+          nextImg.classList.add('active');
+          activeImg.classList.remove('active');
+        }
+      }, 4500);
+    }, slotIdx * 1500);
+  });
+}
+
+function initAll() {
+  initSakura();
+  initTechLogos();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAll);
+} else {
+  initAll();
+}
+
+function createPetal(container) {
+  if (!container) return;
+  const petal = document.createElement('div');
+  petal.className = 'petal';
+
+  const size = Math.random() * 10 + 8;
+  const x = Math.random() * window.innerWidth;
+  const duration = Math.random() * 10 + 14;
+  const delay = Math.random() * 12;
+
+  petal.style.left = x + 'px';
+  petal.style.width = size + 'px';
+  petal.style.height = (size * .75) + 'px';
+  petal.style.animationDuration = duration + 's';
+  petal.style.animationDelay = delay + 's';
+
+  // Make opacity much higher (between 0.4 and 0.8) so they are visible
+  petal.style.opacity = (Math.random() * 0.4 + 0.4).toFixed(2);
+
+  // Solid sakura pink colors
+  const colors = [
+    '#ffd1dc', // light pink
+    '#ffb7c5', // sakura pink
+    '#ff9ebb', // dark sakura pink
+    '#ffe3e8'  // soft rose
+  ];
+
+  petal.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+  container.appendChild(petal);
+
+  petal.addEventListener('animationend', () => {
+    petal.remove();
+    createPetal(container);
+  });
+}
+</script>
+
+<style is:global>
+  .petal {
+    position: absolute;
+    top: -30px;
+    border-radius: 12px 2px 12px 2px;
+    filter: blur(0.4px);
+    will-change: transform;
+    animation: sakura-fall linear infinite;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  @keyframes sakura-fall {
+    0% {
+      transform: translate3d(0, -20px, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate3d(80px, 50vh, 0) rotate(180deg);
+    }
+    100% {
+      transform: translate3d(160px, 105vh, 0) rotate(360deg);
+    }
+  }
+</style>

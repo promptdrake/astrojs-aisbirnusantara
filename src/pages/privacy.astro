@@ -1,0 +1,128 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Kebijakan Privasi">
+  <Navbar />
+  <main class="page-container section-padding">
+    <div class="container">
+      <div class="glass-panel text-content">
+        <h1 class="page-title text-gradient">Kebijakan Privasi</h1>
+        <p class="last-updated">Pembaruan Terakhir: {new Date().toLocaleDateString('id-ID')}</p>
+        
+        <section class="terms-section">
+          <h2>1. Pendahuluan</h2>
+          <p>Aisbir Cloud Nusantara sangat menghargai privasi Anda. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, melindungi, dan dalam beberapa kondisi yang sangat terbatas, membagikan informasi pribadi Klien yang menggunakan layanan Web Hosting, Pterodactyl Panel, dan pendaftaran Domain kami.</p>
+        </section>
+
+        <section class="terms-section">
+          <h2>2. Pengumpulan Data Informasi</h2>
+          <p>Kami mengumpulkan data ketika Anda mendaftar melalui portal klien kami, melengkapi pesanan, atau saat menghubungi *customer service*. Informasi yang kami kumpulkan meliputi:</p>
+          <ul>
+            <li>Informasi identitas dasar (Nama, Alamat Email, Nomor WhatsApp/Telepon).</li>
+            <li>Informasi penagihan dan detail metode pembayaran.</li>
+            <li>Log akses dasar, alamat IP, dan metadata telemetri sistem demi keamanan server.</li>
+          </ul>
+        </section>
+
+        <section class="terms-section">
+          <h2>3. Penggunaan Informasi Pribadi</h2>
+          <p>Data pribadi Anda hanya digunakan untuk tujuan utama layanan, meliputi:</p>
+          <ul>
+            <li>Pembuatan akun, instalasi server (Pterodactyl/DirectAdmin), dan aktivasi otomatis.</li>
+            <li>Pengiriman pemberitahuan teknis, notifikasi tagihan, pemeliharaan (*maintenance*), dan *support ticket*.</li>
+            <li>Pencegahan penipuan (*fraud*), spam, dan aktivitas ilegal di jaringan hosting kami.</li>
+          </ul>
+        </section>
+
+        <section class="terms-section">
+          <h2>4. Perlindungan dan Keamanan Data</h2>
+          <p>Keamanan database website dan panel kontrol Anda adalah komitmen kami. Kami menerapkan enkripsi standar industri (termasuk teknologi SSL) dan arsitektur basis data terenkripsi pada area sensitif untuk memastikan tidak ada akses tidak sah ke data Anda maupun *file* web yang Anda <i>hosting</i> di server kami.</p>
+        </section>
+
+        <section class="terms-section">
+          <h2>5. Berbagi Data kepada Pihak Ketiga</h2>
+          <p>Kami <strong>tidak pernah menjual</strong> data pribadi Anda kepada pihak mana pun untuk keperluan iklan pemasaran (*marketing*). Kami hanya membagikan informasi dalam kapasitas minimum kepada mitra terkait secara langsung, seperti:</p>
+          <ul>
+            <li><strong>Registrar Domain:</strong> Untuk mendaftarkan nama domain yang wajib tercatat di basis data publik WHOIS.</li>
+            <li><strong>Payment Gateway:</strong> Untuk memverifikasi keabsahan pembayaran tagihan.</li>
+          </ul>
+        </section>
+
+        <section class="terms-section">
+          <h2>6. Perubahan Kebijakan Privasi</h2>
+          <p>Kami sewaktu-waktu berhak memperbarui dokumen Kebijakan Privasi ini. Segala pembaruan yang merubah cara kami menangani data Anda secara signifikan akan diberitahukan ke email klien yang terdaftar.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-container {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    min-height: calc(100vh - 250px);
+  }
+
+  .text-content {
+    padding: 3.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 1.5rem;
+  }
+
+  .page-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .last-updated {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 3.5rem;
+    font-size: 1rem;
+  }
+
+  .terms-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .terms-section h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    color: var(--primary-accent);
+  }
+
+  .terms-section p, .terms-section ul {
+    color: var(--text-primary);
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+  }
+
+  .terms-section ul {
+    padding-left: 1.5rem;
+    list-style-type: disc;
+  }
+
+  .terms-section li {
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .text-content {
+      padding: 2rem 1.5rem;
+    }
+    .page-title {
+      font-size: 2rem;
+    }
+  }
+</style>

@@ -1,0 +1,256 @@
+---
+const packages = [
+  {
+    name: "Pelajar",
+    price: "Rp 5.000",
+    disk: "1 GB",
+    domains: "2",
+    mysql: "2",
+    ssh: "Nonaktif",
+    popular: false
+  },
+  {
+    name: "Warga",
+    price: "Rp 7.000",
+    disk: "2 GB",
+    domains: "2",
+    mysql: "2",
+    ssh: "Nonaktif",
+    popular: false
+  },
+  {
+    name: "Pendekar",
+    price: "Rp 15.000",
+    disk: "15 GB",
+    domains: "3",
+    mysql: "Tak Terbatas",
+    ssh: "Nonaktif",
+    popular: false
+  },
+  {
+    name: "Mahapatih",
+    price: "Rp 20.000",
+
+    disk: "20 GB",
+    domains: "4",
+    mysql: "Tak Terbatas",
+    ssh: "Aktif",
+    popular: true
+  },
+  {
+    name: "Jendral",
+    price: "Rp 50.000",
+
+    disk: "50 GB",
+    domains: "999",
+    mysql: "Tak Terbatas",
+    ssh: "Aktif",
+    popular: false
+  }
+];
+---
+
+<section id="directadmin" class="section-padding" style="background: rgba(0,0,0,0.02);">
+  <div class="container">
+    <h2 class="section-title reveal-on-scroll">Web <span class="text-gradient">Hosting</span></h2>
+    <p class="section-subtitle reveal-on-scroll" style="transition-delay: 100ms">Solusi hosting andal untuk situs web Anda. Didukung oleh SSD super cepat.</p>
+
+    <div class="table-responsive glass-panel reveal-on-scroll" style="transition-delay: 200ms">
+      <table class="hosting-table">
+        <thead>
+          <tr>
+            <th>Paket</th>
+            <th>Harga</th>
+       
+            <th>Penyimpanan Disk</th>
+            <th>Domain</th>
+            <th>MySQL</th>
+            <th>SSH</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          {packages.map((pkg) => (
+            <tr class={pkg.popular ? 'highlight-row' : ''}>
+              <td class="pkg-name">
+                {pkg.name}
+                {pkg.popular && <span class="badge badge-popular ml-2" style="font-size: 0.6rem; padding: 0.2rem 0.5rem;">Populer</span>}
+              </td>
+              <td class="pkg-price">{pkg.price}</td>
+              <td>{pkg.disk}</td>
+              <td>{pkg.domains}</td>
+              <td>{pkg.mysql}</td>
+              <td>
+                <span class={`status-badge ${pkg.ssh === 'Aktif' ? 'status-enabled' : 'status-disabled'}`}>
+                  {pkg.ssh}
+                </span>
+              </td>
+              <td>
+                <a href="https://portal.aisbirnusantara.com" target="_blank" rel="noopener noreferrer" class="btn-primary btn-sm">
+               Beli Sekarang
+                </a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hosting-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .hosting-table th,
+  .hosting-table td {
+    padding: 1.25rem 1.5rem;
+    color: var(--text-primary);
+  }
+
+  .hosting-table th {
+    background: rgba(0, 0, 0, 0.03);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    border-bottom: 2px solid var(--border-color);
+  }
+
+  .hosting-table td {
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 500;
+  }
+
+  .hosting-table tbody tr {
+    transition: background var(--transition-normal);
+  }
+
+  .hosting-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .highlight-row {
+    background: rgba(59, 130, 246, 0.05);
+  }
+
+  .pkg-name {
+    font-weight: 700 !important;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .pkg-price {
+    font-weight: 700 !important;
+    color: var(--primary-accent);
+  }
+
+  .status-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .status-enabled {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+  }
+
+  .status-disabled {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+  }
+
+  .btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  :global(.dark) .hosting-table th {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  :global(.dark) .highlight-row {
+    background: rgba(59, 130, 246, 0.1);
+  }
+
+  @media (max-width: 1024px) {
+    .table-responsive {
+      box-shadow: none;
+      background: transparent;
+      border: none;
+    }
+    
+    .hosting-table, .hosting-table tbody, .hosting-table tr, .hosting-table td {
+      display: block;
+      width: 100%;
+    }
+    
+    .hosting-table thead {
+      display: none;
+    }
+    
+    .hosting-table tr {
+      margin-bottom: 2rem;
+      background: var(--surface-color);
+      backdrop-filter: var(--glass-backdrop);
+      border: var(--glass-border);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .hosting-table td {
+      text-align: right;
+      padding-left: 50%;
+      position: relative;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .hosting-table td:last-child {
+      border-bottom: none;
+    }
+    
+    .hosting-table td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 1.5rem;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      text-align: left;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    .pkg-name {
+      justify-content: flex-end;
+    }
+  }
+</style>
+
+<script>
+  // Add data labels for mobile responsive table
+  document.addEventListener('DOMContentLoaded', () => {
+    const table = document.querySelector('.hosting-table');
+    if (!table) return;
+    
+    const headers = Array.from(table.querySelectorAll('th')).map(th => th.textContent);
+    const rows = table.querySelectorAll('tbody tr');
+    
+    rows.forEach(row => {
+      const cells = row.querySelectorAll('td');
+      cells.forEach((cell, i) => {
+        cell.setAttribute('data-label', headers[i]);
+      });
+    });
+  });
+</script>

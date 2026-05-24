@@ -1,0 +1,120 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Syarat & Ketentuan">
+  <Navbar />
+  <main class="page-container section-padding">
+    <div class="container">
+      <div class="glass-panel text-content">
+        <h1 class="page-title text-gradient">Syarat & Ketentuan Layanan</h1>
+        <p class="last-updated">Pembaruan Terakhir: {new Date().toLocaleDateString('id-ID')}</p>
+        
+        <section class="terms-section">
+          <h2>1. Penerimaan Syarat</h2>
+          <p>Dengan mengakses dan menggunakan layanan Aisbir Cloud Nusantara (termasuk Web Hosting DirectAdmin, Server Pterodactyl, dan Domain), Anda setuju untuk mematuhi dan terikat oleh syarat dan ketentuan ini. Jika Anda tidak setuju dengan ketentuan ini, Anda dilarang menggunakan layanan kami.</p>
+        </section>
+
+        <section class="terms-section">
+          <h2>2. Penggunaan Layanan Server dan Hosting</h2>
+          <p>Anda setuju untuk menggunakan layanan server kami secara bijak dan hanya untuk tujuan yang sah menurut hukum Republik Indonesia. Pelanggaran berat berikut akan menyebabkan penghentian layanan sepihak:</p>
+          <ul>
+            <li>Hosting atau mendistribusikan konten bajakan, malware, eksploit, atau phishing.</li>
+            <li>Menyimpan botnet, melakukan serangan DDoS, atau aktivitas hacking (Scanning/Brute-force).</li>
+            <li>Penggunaan resource server secara tidak wajar pada sistem <em>Shared Hosting</em> yang dapat merugikan pengguna lain.</li>
+          </ul>
+        </section>
+
+        <section class="terms-section">
+          <h2>3. Pembayaran, Penagihan, dan Pengembalian Dana (Refund)</h2>
+          <p>Layanan Anda akan aktif setelah pembayaran diterima penuh. Anda diwajibkan untuk membayar tagihan sebelum masa tenggang berakhir untuk menghindari suspensi atau penghapusan data otomatis.</p>
+          <p><strong>Pengembalian Dana (Refund):</strong> Pembelian layanan hosting dan server tidak dapat di-refund kecuali terdapat gangguan teknis parah dari pihak kami (downtime melebihi SLA) dalam kurun waktu 7 hari pertama, atau menurut kebijakan kasus-per-kasus yang ditinjau langsung oleh tim manajemen kami. Pendaftaran Domain sama sekali tidak dapat di-refund.</p>
+        </section>
+
+        <section class="terms-section">
+          <h2>4. Ketersediaan Layanan (Uptime SLA)</h2>
+          <p>Kami menjamin ketersediaan layanan jaringan dan server sebesar 99.9% per bulan. Garansi SLA ini tidak berlaku pada kondisi <em>force majeure</em> (bencana alam), pemeliharaan darurat, atau kesalahan/kelalaian operasional dari sisi klien.</p>
+        </section>
+
+        <section class="terms-section">
+          <h2>5. Backup dan Kehilangan Data</h2>
+          <p>Kami menyediakan fitur <em>auto-backup</em> secara berkala, namun Klien diwajibkan untuk mengunduh dan menyimpan backup data mereka sendiri secara mandiri. Kami tidak bertanggung jawab atas kerugian bisnis, kehilangan aset digital, atau kerusakan data apa pun yang timbul akibat kegagalan perangkat keras, serangan siber, atau kelalaian klien.</p>
+        </section>
+
+        <section class="terms-section">
+          <h2>6. Perubahan Syarat Layanan</h2>
+          <p>Kami dapat merevisi syarat dan ketentuan ini sewaktu-waktu tanpa pemberitahuan sebelumnya. Dengan menggunakan situs ini, Anda setuju untuk terikat oleh versi terbaru dari syarat dan ketentuan layanan ini.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-container {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    min-height: calc(100vh - 250px);
+  }
+
+  .text-content {
+    padding: 3.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 1.5rem;
+  }
+
+  .page-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .last-updated {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 3.5rem;
+    font-size: 1rem;
+  }
+
+  .terms-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .terms-section h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    color: var(--primary-accent);
+  }
+
+  .terms-section p, .terms-section ul {
+    color: var(--text-primary);
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+  }
+
+  .terms-section ul {
+    padding-left: 1.5rem;
+    list-style-type: disc;
+  }
+
+  .terms-section li {
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .text-content {
+      padding: 2rem 1.5rem;
+    }
+    .page-title {
+      font-size: 2rem;
+    }
+  }
+</style>

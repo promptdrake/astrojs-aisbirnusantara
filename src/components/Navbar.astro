@@ -1,0 +1,130 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<header class="navbar">
+  <div class="container navbar-container">
+    <a href="/" class="logo">
+      <img src="https://id-cdn.aisbirnusantara.com/portal/logo.svg" alt="Aisbir Cloud Logo" class="logo-img" />
+    </a>
+    
+    <nav class="nav-links">
+      <a href="#pterodactyl" class="nav-link">Pterodactyl Panel</a>
+      <a href="#directadmin" class="nav-link">Web Hosting</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <ThemeToggle />
+      <a href="https://portal.aisbirnusantara.com" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        Portal Klien
+      </a>
+    </nav>
+    
+    <button class="mobile-menu-btn" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1rem 0;
+    background: var(--nav-bg, var(--surface-solid));
+    border-bottom: 1px solid var(--border-color);
+    transition: all var(--transition-normal);
+  }
+
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+
+  .logo-img {
+    height: 2.5rem;
+    width: auto;
+    max-width: 200px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: color var(--transition-normal);
+  }
+
+  .nav-link:hover {
+    color: var(--primary-accent);
+  }
+
+  .mobile-menu-btn {
+    display: none;
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: var(--surface-color);
+      backdrop-filter: var(--glass-backdrop);
+      -webkit-backdrop-filter: var(--glass-backdrop);
+      border-bottom: var(--glass-border);
+      flex-direction: column;
+      padding: 1rem 0;
+      box-shadow: var(--shadow-md);
+      z-index: 99;
+    }
+    
+    .nav-links.show {
+      display: flex;
+    }
+    
+    .mobile-menu-btn {
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const links = document.querySelectorAll('.nav-link');
+
+    if (mobileMenuBtn && navLinks) {
+      mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+      });
+
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('show');
+        });
+      });
+    }
+  });
+</script>
