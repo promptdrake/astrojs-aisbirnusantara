@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import authlogopng from '../assets/auth-logo.png';
 const currentYear = new Date().getFullYear();
 ---
 
@@ -7,7 +9,7 @@ const currentYear = new Date().getFullYear();
     <div class="footer-grid grid grid-4">
       <div class="footer-col col-span-2">
         <a href="/" class="logo">
-          <img src="https://id-cdn.aisbirnusantara.com/brand/auth-logo.png" alt="Aisbir Cloud Logo" class="logo-img" />
+          <Image src={authlogopng}  alt="Aisbir Cloud Logo" class="logo-img" />
         </a>
         <p class="footer-desc">
           Memberdayakan perjalanan digital Anda dengan solusi hosting berkinerja tinggi, aman, dan andal. Kesuksesan Anda adalah prioritas kami.

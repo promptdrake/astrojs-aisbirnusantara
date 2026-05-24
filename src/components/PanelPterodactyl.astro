@@ -1,11 +1,13 @@
 ---
+import { Image } from 'astro:assets';
+import panelpteropng from '../assets/panel_ptero.png';
 ---
 
 <section class="section-padding section-grid-bg">
   <div class="container">
     <div class="panel-layout">
       <div class="panel-image reveal-on-scroll" style="transition-delay: 100ms;">
-        <img src="https://id-cdn.aisbirnusantara.com/brand/1779614253264.png" alt="Mockup Pterodactyl Panel" class="mockup-img animate-float" style="animation-delay: -2s;" />
+        <Image src={panelpteropng}  alt="Mockup Pterodactyl Panel" class="mockup-img animate-float" style="animation-delay: -2s;" />
       </div>
 
       <div class="panel-content reveal-on-scroll" style="transition-delay: 200ms;">

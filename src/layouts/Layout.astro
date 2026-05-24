@@ -45,6 +45,16 @@ const socialImageURL = new URL('/banner.png', Astro.site);
 		<meta property="twitter:title" content={`${title} | Aisbir Cloud Nusantara`} />
 		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content={socialImageURL} />
+
+		<!-- Google Analytics -->
+		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-7KK304B7ZG"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-7KK304B7ZG');
+		</script>
 		
 		<script is:inline>
 			// Dark mode initialization

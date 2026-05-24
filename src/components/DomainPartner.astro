@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import domainlogospng from '../assets/domain_logos.png';
 ---
 
 <section class="section-padding">
@@ -10,7 +12,7 @@
       </p>
 
       <div class="domain-image-container reveal-on-scroll" style="transition-delay: 200ms;">
-        <img src="https://id-cdn.aisbirnusantara.com/brand/domain_logos.png" alt="Ekstensi Domain Populer" class="domain-logos animate-float" />
+        <Image src={domainlogospng}  alt="Ekstensi Domain Populer" class="domain-logos animate-float" />
       </div>
     </div>
   </div>

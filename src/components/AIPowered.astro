@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import aipng from '../assets/ai.png';
 ---
 
 <section class="section-padding section-grid-bg">
@@ -15,7 +17,7 @@
       </div>
       
       <div class="ai-image reveal-on-scroll" style="transition-delay: 200ms;">
-        <img src="https://id-cdn.aisbirnusantara.com/brand/ai.png" alt="AI Powered Assistant" class="mockup-img animate-float" />
+        <Image src={aipng}  alt="AI Powered Assistant" class="mockup-img animate-float" />
       </div>
     </div>
   </div>

@@ -1,7 +1,10 @@
 ---
+import { Image } from 'astro:assets';
+import kakakumichanpng from '../assets/kakak_umi_chan.png';
 ---
 
 <section class="hero-section">
+  <Image src={kakakumichanpng} alt="Background" class="hero-bg-img" loading="eager" />
   <div class="cursor-glow" id="hero-glow"></div>
   <div class="sakura-container" id="sakura-container"></div>
 
@@ -81,9 +84,17 @@
   display:flex;
   align-items:center;
   overflow:hidden;
-  background-image:url('https://id-cdn.aisbirnusantara.com/brand/kakak_umi_chan.png');
-  background-size:cover;
-  background-position:center;
+}
+
+.hero-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
 }
 
 .hero-section::before{
