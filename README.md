@@ -4,20 +4,12 @@
 
 Template *landing page* [Aisbir Cloud Nusantara](https://aisbirnusantara.com), penyedia layanan *web hosting* dan server Pterodactyl. Proyek ini dibangun dari nol dengan fokus pada performa, aksesibilitas, dan SEO tingkat tinggi.
 
-## Fitur Utama
 
-- **Skor Lighthouse 100/100**: Optimasi pada metrik FCP, LCP, dan CLS hingga skor nyaris sempurna di perangkat seluler maupun desktop.
-- **Ultra Ringan**: Semua aset gambar telah diubah ukurannya dan dikompresi menjadi WebP secara lokal
-- **Astro SSG (Static Site Generation)**: Dibangun menggunakan [Astro](https://astro.build/)
-- **SEO Ready**: Mendukung metadata lengkap, Open Graph, Twitter Cards, kanonikal URL, serta `sitemap.xml` yang dibuat secara otomatis menggunakan `@astrojs/sitemap`.
-- **Desain Modern**: Antarmuka *glassmorphism* modern dengan animasi yang responsif.
-- **Siap Cloudflare Pages**: Konfigurasi `_headers` khusus untuk instruksi *Cache-Control* dan *Expires Headers* yang sempurna di infrastruktur Cloudflare.
 
-## Teknologi yang Digunakan
+## Tech yang digunakan
 
 - [Astro](https://astro.build/) - *Web framework* utama
-- CSS Murni - Styling kustom tingkat tinggi tanpa tambahan framework
-- [Cloudflare Pages](https://pages.cloudflare.com/) - Infrastruktur *deployment* & *hosting*
+- [Cloudflare Pages](https://pages.cloudflare.com/)
 
 ## Panduan Instalasi 
 
